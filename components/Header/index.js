@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <Link href={'/'}>
-                <a>
+                <a aria-label={'ping'}>
                     <Logo className={styles.logo} />
                 </a>
             </Link>
