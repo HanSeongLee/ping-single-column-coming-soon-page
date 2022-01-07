@@ -3,10 +3,15 @@ import styles from './style.module.scss';
 import cn from 'classnames';
 
 const EmailForm = () => {
-    const [error, setError] = useState(false);
+    const [error, setError] = useState('');
     const onInvalid = useCallback((e) => {
-        const { validationMessage } = e.target;
-        setError(!!validationMessage);
+        const { validationMessage, validity } = e.target;
+        if (!!validationMessage === false) {
+            return ;
+        }
+        setError(validity.valueMissing ?
+            'Whoops! It looks like you forgot to add your email'
+            : 'Please provide a valid email address');
         e.preventDefault();
     }, []);
 
@@ -25,7 +30,7 @@ const EmailForm = () => {
                 {error && (
                     <>
                         <div className={styles.error}>
-                            Please provide a valid email address
+                            {error}
                         </div>
                     </>
                 )}
