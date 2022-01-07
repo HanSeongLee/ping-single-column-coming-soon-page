@@ -1,4 +1,7 @@
 import Head from 'next/head';
+import Header from "../components/Header";
+import HeroSection from "../components/HeroSection";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -52,7 +55,12 @@ export default function Home() {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
       </Head>
 
+      <Header />
+
       <main>
+        <HeroSection />
+
+        <Footer />
       </main>
     </>
   )
